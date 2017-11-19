@@ -8,7 +8,7 @@ Based on:
     sudo pip install -U pip  
     sudo pip install tensorflow 
 
-# Test
+## Test
 
 [Test](https://www.tensorflow.org/versions/master/tutorials/audio_recognition#training_finished)
 
@@ -18,12 +18,12 @@ Based on:
     --labels=conv_actions_labels.txt \
     --wav=a5d485dc_nohash_0.wav
 
-# Pretrained Model
+## Pretrained Model
 
 * [running_the_model_in_an_android_app](https://www.tensorflow.org/versions/master/tutorials/audio_recognition#running_the_model_in_an_android_app)
 * [Pretrained Model v0.01](http://download.tensorflow.org/models/speech_commands_v0.01.zip)
 
-# Train
+## Train
 
 [Training](https://www.tensorflow.org/versions/master/tutorials/audio_recognition#training)
 
