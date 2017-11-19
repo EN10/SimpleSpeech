@@ -7909,6 +7909,811 @@ node {
   input: "^Variable_5/Assign"
   input: "^global_step/Assign"
 }
+node {
+  name: "save_1/Const"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+        }
+        string_val: "model"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/SaveV2/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 7
+          }
+        }
+        string_val: "Variable"
+        string_val: "Variable_1"
+        string_val: "Variable_2"
+        string_val: "Variable_3"
+        string_val: "Variable_4"
+        string_val: "Variable_5"
+        string_val: "global_step"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/SaveV2/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 7
+          }
+        }
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/SaveV2"
+  op: "SaveV2"
+  input: "save_1/Const"
+  input: "save_1/SaveV2/tensor_names"
+  input: "save_1/SaveV2/shape_and_slices"
+  input: "Variable"
+  input: "Variable_1"
+  input: "Variable_2"
+  input: "Variable_3"
+  input: "Variable_4"
+  input: "Variable_5"
+  input: "global_step"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_FLOAT
+        type: DT_INT64
+      }
+    }
+  }
+}
+node {
+  name: "save_1/control_dependency"
+  op: "Identity"
+  input: "save_1/Const"
+  input: "^save_1/SaveV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@save_1/Const"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2/tensor_names"
+  input: "save_1/RestoreV2/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign"
+  op: "Assign"
+  input: "Variable"
+  input: "save_1/RestoreV2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_1/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable_1"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_1/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_1"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_1/tensor_names"
+  input: "save_1/RestoreV2_1/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_1"
+  op: "Assign"
+  input: "Variable_1"
+  input: "save_1/RestoreV2_1"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable_1"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_2/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable_2"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_2/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_2"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_2/tensor_names"
+  input: "save_1/RestoreV2_2/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_2"
+  op: "Assign"
+  input: "Variable_2"
+  input: "save_1/RestoreV2_2"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable_2"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_3/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable_3"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_3/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_3"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_3/tensor_names"
+  input: "save_1/RestoreV2_3/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_3"
+  op: "Assign"
+  input: "Variable_3"
+  input: "save_1/RestoreV2_3"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable_3"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_4/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable_4"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_4/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_4"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_4/tensor_names"
+  input: "save_1/RestoreV2_4/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_4"
+  op: "Assign"
+  input: "Variable_4"
+  input: "save_1/RestoreV2_4"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable_4"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_5/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "Variable_5"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_5/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_5"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_5/tensor_names"
+  input: "save_1/RestoreV2_5/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_FLOAT
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_5"
+  op: "Assign"
+  input: "Variable_5"
+  input: "save_1/RestoreV2_5"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Variable_5"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_6/tensor_names"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: "global_step"
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_6/shape_and_slices"
+  op: "Const"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_STRING
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_STRING
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        string_val: ""
+      }
+    }
+  }
+}
+node {
+  name: "save_1/RestoreV2_6"
+  op: "RestoreV2"
+  input: "save_1/Const"
+  input: "save_1/RestoreV2_6/tensor_names"
+  input: "save_1/RestoreV2_6/shape_and_slices"
+  attr {
+    key: "dtypes"
+    value {
+      list {
+        type: DT_INT64
+      }
+    }
+  }
+}
+node {
+  name: "save_1/Assign_6"
+  op: "Assign"
+  input: "global_step"
+  input: "save_1/RestoreV2_6"
+  attr {
+    key: "T"
+    value {
+      type: DT_INT64
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@global_step"
+      }
+    }
+  }
+  attr {
+    key: "use_locking"
+    value {
+      b: true
+    }
+  }
+  attr {
+    key: "validate_shape"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "save_1/restore_all"
+  op: "NoOp"
+  input: "^save_1/Assign"
+  input: "^save_1/Assign_1"
+  input: "^save_1/Assign_2"
+  input: "^save_1/Assign_3"
+  input: "^save_1/Assign_4"
+  input: "^save_1/Assign_5"
+  input: "^save_1/Assign_6"
+}
 versions {
   producer: 24
 }
