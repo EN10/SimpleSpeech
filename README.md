@@ -28,3 +28,18 @@ Based on:
 [Training](https://www.tensorflow.org/versions/master/tutorials/audio_recognition#training)
 
     python train/train.py
+    
+## Keywords:
+
+* "yes", 
+* "no", 
+* "up", 
+* "down", 
+* "left", 
+* "right", 
+* "on", 
+* "off", 
+* "stop", 
+* "go", 
+* silence, 
+* an unknown word.
