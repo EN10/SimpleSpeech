@@ -6,6 +6,8 @@ cp /projects/Speech/train/speech_dataset /tmp/speech_dataset -r
 cp /projects/Speech/train/speech_commands_train /tmp/speech_commands_train -r
 cp /projects/Speech/train/retrain_logs /tmp/retrain_logs -r
 
+python train/train.py --start_checkpoint=/tmp/speech_commands_train/conv.ckpt-100
+
 Update /tmp files:
 cp /tmp/speech_commands_train /projects/Speech/train/ -r
 cp /tmp/retrain_logs /projects/Speech/train/ -r
