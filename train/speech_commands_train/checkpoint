@@ -1,0 +1,2 @@
+model_checkpoint_path: "/tmp/speech_commands_train/conv.ckpt-100"
+all_model_checkpoint_paths: "/tmp/speech_commands_train/conv.ckpt-100"

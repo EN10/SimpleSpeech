@@ -9,6 +9,7 @@ cp /projects/Speech/train/retrain_logs /tmp/retrain_logs -r
 
 Update /tmp files:
 cp /tmp/speech_commands_train /projects/Speech/train/ -r
+cp /tmp/retrain_logs /projects/Speech/train/ -r
 
 cp Speech/train/speech_dataset/speech_commands_v0.01.tar.gz /tmp/speech_dataset/speech_commands_v0.01.tar.gz
 
