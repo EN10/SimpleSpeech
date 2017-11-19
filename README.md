@@ -43,3 +43,8 @@ Based on:
 * "go", 
 * silence, 
 * an unknown word.
+
+## Errors:
+
+    ImportError: cannot import name audio_ops
+tensorflow >= 1.4.0 required
